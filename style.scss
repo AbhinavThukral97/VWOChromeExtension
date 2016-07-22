@@ -1,0 +1,267 @@
+$primary-font: 'Roboto', sans-serif;
+
+@mixin transition($time){
+-webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -ms-transition: all $time ease;
+  transition: all $time ease;
+}
+
+//Dimensions
+$width: 500px;
+$height: 600px;
+$header-height: 80px;
+$add-section-height: 60px;
+$tile-height: 180px;
+
+//Color Palette
+$header-color: rgb(43, 57, 69);
+$title-color: #FFF;
+$add-section-color: #3892E3;
+$add-section-hover: #4aa5f7;
+$add-text-color: #FFF;
+$add-button-color: #FFF;
+$tile-wrapper-back: #EEE;
+$line-color: rgba(0,0,0,.1);
+$tile-svg-color: #9eadbf;
+$edit-button-color: #222;
+$remove-button-color: #ed4e51;
+$number-back: rgb(43, 57, 69);
+$number-color: #FFF;
+$obs-text-color: #424852;
+$time-stamp-color: #A6AEB9;
+
+
+.tiles-section::-webkit-scrollbar {
+    width: 14px;
+}
+
+.tiles-section::-webkit-scrollbar-track {
+    background: #f7f7f7;
+}
+
+.tiles-section::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+.tiles-section::-webkit-scrollbar-button {
+    display: none;
+}
+.tiles-section::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+*
+{
+	font-family: $primary-font;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+body 
+{
+	position: relative;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+}
+
+.svg-code
+{
+	display: none;
+}
+
+.extension-wrapper
+{
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+
+//Main-CSS
+.extension-area
+{
+	height: $height;
+	width: $width;
+	background: #FFF;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	overflow: auto;
+
+	header
+	{
+		background: $header-color;
+		height: $header-height;
+		width: 100%;
+
+		.split 
+		{
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.split:nth-child(1)
+		{
+			height: 100%;
+			width: 100px;
+			border-right: 1px solid rgba(255,255,255,.1);
+		}
+
+		.logo
+		{	
+			width: 50px;
+			position: relative;
+			top: 50%;
+			transform: translate(0,-50%);	
+			margin: auto;
+
+			svg 
+			{
+				width: 100%;
+			}
+		}
+
+		.title
+		{
+			color: $title-color;
+			font-size: 1.4em;
+			font-weight: 400;
+			padding: 0px 25px;
+		}
+	}
+
+	.add-section
+	{
+		width: 100%;
+		background: $add-section-color;
+		box-shadow: 0px -5px 0px rgba(0,0,0,.1) inset;
+		cursor: pointer;
+		@include transition(.5s);
+
+		.add-text
+		{
+			width: 80%;
+			height: $add-section-height;
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			p
+			{
+				color: $add-text-color;
+				font-size: 1em;
+				position: relative;
+				top: -1px;
+			}
+
+			.add-button
+			{
+				svg 
+				{
+					width: 20px;
+					padding: 10px;
+					fill: $add-button-color;
+				}
+			}
+		}
+	}
+
+	.add-section:hover
+	{
+		background: $add-section-hover;
+	}
+}
+
+.tiles-section
+{
+	width: 100%;
+	height: $height - $add-section-height - $header-height;
+	background: $tile-wrapper-back;
+	overflow: auto;
+
+	.tile 
+	{
+		position: relative;
+		width: 100%;
+		height: $tile-height;
+		border-bottom: 1px solid $line-color;
+		background: #FFF;
+
+		.tile-options
+		{
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+			opacity: 0;
+			@include transition(.2s);
+
+			.edit,.remove 
+			{
+				width: 16px;
+				padding: 5px;
+				cursor: pointer;
+				fill: $tile-svg-color;
+			}
+
+			.edit:hover
+			{
+				fill: $edit-button-color !important;
+			}
+
+			.remove:hover
+			{
+				fill: $remove-button-color !important;
+			}
+		}
+
+		.content-wrapper
+		{
+			width: 85%;
+			padding-top: 25px;
+			padding-left: 25px;
+			overflow: auto;
+
+			.obs-number
+			{
+				display: inline-block;
+				background: $number-back;
+				color: $number-color;
+				padding: 4px 10px;
+				border-radius: 30px;
+				font-size: .85em;
+				margin-bottom: 10px;
+			}
+
+			.obs-text
+			{
+				font-size: 1em;
+				color: $obs-text-color;
+			}
+
+			.time-stamp
+			{
+				padding-top: 10px;
+				font-size: .8em;
+				color: $time-stamp-color;
+			}
+		}
+	}
+
+	.tile:last-of-type
+	{
+		border: none;
+	}
+
+	.tile:hover
+	{
+		.tile-options
+		{
+			opacity: 1;
+		}
+	}
+}
+
