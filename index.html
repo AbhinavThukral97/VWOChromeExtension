@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="jquery.js"></script>
 	<script type="text/javascript" src="main.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 </head>
 <body>
 <!--Extension Wrapper to position; Not reqd.-->
@@ -69,40 +69,169 @@
 			<div class="split">
 				<h1 class="title">Observations</h1>
 			</div>
-		</header>
-		<!--End of header-->
-		<!--Add-Section-->
-		<div class="add-section">
-			<div class="add-text">
-				<div class="add-button">
-					<svg  viewBox="0 0 24 24">
-						<use xlink:href="#addsvg"/>
+
+			<div class="settings">
+				<div class="setting-icon-wrap">
+					<svg>
+						<use xlink:href="#setting"/>
 					</svg>
 				</div>
-				<p>Add an observation</p>
+			</div>
+			<div class="close-button">
+				<div class="close-icon-wrap">
+					<svg>
+						<use xlink:href="#close"/>
+					</svg>
+				</div>
+			</div>
+			
+		</header>
+		<!--End of header-->
+		<!--Enable-Section-->
+		<div class="enable-section">
+			<div class="enable-button-wrapper">
+			<div class="assist-text">Observation Mode</div>
+				<div class="button-body">
+					<div class="button-thumb"></div>
+				</div>
+				
 			</div>
 		</div>
-		<!--End of Add-Section-->
+		<!--End of Enable-Section-->
 		<!--Tiles-Section-->
 		<div class="tiles-section">	
 
 			<div class="tile">
 				<!--Tile Content-->
-				<div class="content-wrapper">
-					<!--Observation Number-->
-					<div class="obs-number">01</div> 
+				<div class="content-wrapper">				
 					<!--Observation-Text-->
-					<div class="obs-text">Sign up button is way too hidden here. Maybe we should try a bigger size, brighter color etc.</div>
+					<div class="obs-text"><div class="obs-number">01</div> Sign up button is way too hidden here. Maybe we should try a bigger size, brighter color etc. More stuff to make this into three sentences blah blah</div>
+					<!--Tags-->
+					<div class="tag">Tag 1</div>
 					<!--Time Stamp-->
 					<div class="time-stamp"><b>Jul 22, 2016 1:42:53 PM</b> by <b>Panda</b></div>
 				</div>
 				<!--Fixed Buttons-->
 				<div class="tile-options">
 					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
-					<svg viewBox="0 0 24 24" class="remove"><use xlink:href="#remove-button"/></svg>
 				</div>
 			</div>
 
+			<div class="tile">
+				<!--Tile Content-->
+				<div class="content-wrapper">				
+					<!--Observation-Text-->
+					<div class="obs-text"><div class="obs-number">01</div> Sign up button is way too hidden here. Maybe we should try a bigger size, brighter color etc. More stuff to make this into three sentences and more to</div>
+					<!--Tags-->
+					<div class="tag">Tag 1</div>
+					<!--Time Stamp-->
+					<div class="time-stamp"><b>Jul 22, 2016 1:42:53 PM</b> by <b>Panda</b></div>
+				</div>
+				<!--Fixed Buttons-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<!--Tile Content-->
+				<div class="content-wrapper">				
+					<!--Observation-Text-->
+					<div class="obs-text"><div class="obs-number">01</div> Sign up button is way too hidden here. Maybe we should try a bigger size, brighter color etc. More stuff to make this into three sentences blah blah</div>
+					<!--Tags-->
+					<div class="tag">Tag 1</div>
+					<!--Time Stamp-->
+					<div class="time-stamp"><b>Jul 22, 2016 1:42:53 PM</b> by <b>Panda</b></div>
+				</div>
+				<!--Fixed Buttons-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="add-section">
+				<div class="text">
+					<svg viewBox="0 0 18 18" class="add"><use xlink:href="#addsvg"/></svg>
+					<p>Add a category</p>
+				</div>
+		</div>
+
+		<div class="settings-tab">
+			
+			<div class="tile-wrap">
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="content-wrapper">
+					<div class="tag">Tag text blah</div>
+					<div class="description">blah blah description blah blah text Lorem ipsum dolor sit amet, consectetur adipisicing elit pidgey</div>
+				</div>
+				<!--Fixed Button-->
+				<div class="tile-options">
+					<svg viewBox="0 0 24 24" class="edit"><use xlink:href="#edit-button"/></svg>
+				</div>
+			</div>
+
+			
+
+		</div>
 		</div>
 
 		</div><!--Pg-Main ends-->
@@ -165,12 +294,16 @@
 
 
 <div class="svg-code">
+<!--Setting-->
+<svg id="setting" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/></svg>
+<!--Close-->
+<svg id="close" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
 <!--Logo-->
 <svg id="logo" viewBox="0 0 279 96"><g fill="none" fill-rule="evenodd"><path d="m229.76 0c27.19 0 49.24 21.49 49.24 48 0 26.51-22.04 48-49.24 48-22.903 0-42.15-15.245-47.656-35.895l4.365 2.763 2.264-3.398c5.108 17.397 21.543 30.13 41.03 30.13 23.566 0 42.671-18.625 42.671-41.6 0-22.975-19.1-41.6-42.671-41.6-2.02 0-4 .136-5.944.4l4.126-6.195-.847-.536c.882-.046 1.771-.069 2.664-.069" fill="#FFF"/><path d="m180.53 0h49.24l-65.65 96-24.618-36-24.618 36-24.895-36.406 3.893-5.845 21 30.713 19.16-28.01 5.462-7.988 5.462 7.988 19.16 28.01 53.38-78.06h-36.969-55.11l4.263-6.4h50.845" fill="#FFF"/><path d="m65.65 96l-65.65-96h131.29l-65.65 96m0-11.538l53.38-78.06h-106.76l53.38 78.06" fill="#FFF"/></g></svg>
 <!--Add Button-->
 <svg id="addsvg" viewBox="0 0 18 18" version="1.1">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Track-dashboard---Goals" transform="translate(-1279.000000, -70.000000)" fill="#FFFFFF">
+        <g id="Track-dashboard---Goals" transform="translate(-1279.000000, -70.000000)" fill="#FFF">
             <g id="constant-bar" transform="translate(80.000000, 39.000000)">
                 <g id="The-great-Create-button-" transform="translate(1175.000000, 14.000000)">
                     <path d="M33,17 C28.02925,17 24,21.02925 24,26 C24,30.97075 28.02925,35 33,35 C37.97025,35 42,30.97075 42,26 C42,21.02925 37.97025,17 33,17 L33,17 Z M35.475,26.57925 L37.81075,28.91525 C38.139,29.2435 38.139,29.78075 37.81075,30.10875 L37.145,30.7745 C36.817,31.10275 36.27975,31.10275 35.95125,30.7745 L33.6155,28.43875 C33.28725,28.1105 32.75,28.1105 32.422,28.43875 L30.086,30.7745 C29.75775,31.10275 29.2205,31.10275 28.8925,30.7745 L28.22675,30.10875 C27.89875,29.78075 27.89875,29.2435 28.22675,28.91525 L30.56275,26.57925 C30.89075,26.251 30.89075,25.71375 30.56275,25.38575 L28.22675,23.04975 C27.8985,22.7215 27.8985,22.18425 28.22675,21.856 L28.89225,21.1905 C29.22025,20.86225 29.75775,20.86225 30.086,21.1905 L32.422,23.5265 C32.75,23.8545 33.28725,23.8545 33.6155,23.5265 L35.95175,21.1905 C36.27975,20.86225 36.817,20.86225 37.145,21.1905 L37.811,21.85625 C38.139,22.18425 38.139,22.7215 37.811,23.04975 L35.475,25.38575 C35.14675,25.71375 35.14675,26.25075 35.475,26.57925 L35.475,26.57925 Z" id="Shape-2" transform="translate(33.000000, 26.000000) rotate(-315.000000) translate(-33.000000, -26.000000) "></path>
