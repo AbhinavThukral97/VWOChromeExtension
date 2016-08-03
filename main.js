@@ -3,9 +3,13 @@ $(document).ready(function(){
 	$('.observations').click(function(){
 		$('.pg-options').animate({left: '-100%'},300);
 		$('.pg-main').animate({left: '0%'},300);
+
 		settings=0;
-		$('.settings').removeClass('settings-active');
+		$('.close-button').removeClass('settings-active');
 		$('.settings-tab').css('visibility','hidden');
+		$('.add-section').css('visibility','hidden');
+		$('.settings').css('display','block');
+		$('.close-button').css('display','none');
 	});
 
 	$('.back-button').click(function(){
