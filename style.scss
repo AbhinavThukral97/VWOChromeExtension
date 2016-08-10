@@ -26,6 +26,7 @@ $button-width: 50px;
 $settings-height: 400px;
 $settings-tile: 120px;
 $add-section: 60px;
+$add-label: 200px;
 
 //Color Palette
 $header-color: rgb(43, 57, 69);
@@ -58,6 +59,7 @@ $add-section-color: #3892E3;
 $setting-active: #3f5465; //#3892E3
 $add-section-text: #FFF;
 $add-section-hover: #4aa5f7;
+$highlight: #a7a7a7;
 
 
 ::-webkit-scrollbar {
@@ -169,7 +171,15 @@ body
 			position: absolute;
 			left: 50%;
 			top: 50%;
+			width: 18px;
+			height: 18px;
+			overflow: hidden;
 			transform: translate(-50%,-50%);
+		}
+
+		.close-icon-wrap
+		{
+			width: 15px !important;
 		}
 
 		.settings,.close-button
@@ -186,6 +196,7 @@ body
 			svg 
 			{
 				width: 18px;
+				height: 18px;
 				fill: $setting-icon;
 			}
 		}
@@ -212,7 +223,7 @@ body
 		}
 
 		//Triangle
-		.settings-active::after
+		.settings-active:after
 		{
 			content: '';
 			position: absolute;
@@ -251,7 +262,9 @@ body
 		{
 			position: relative;
 			width: 25px; /*Icon width plus padding on arrow class(15 + 2x5 = 25)*/
+			height: 25px;
 			padding: 5px;
+			overflow: hidden;
 			margin: auto;
 			top: 50%;
 			transform: translate(0%,-50%) rotateY(-180deg);
@@ -290,7 +303,7 @@ body
 		{	
 			width: 50px;
 			position: relative;
-			top: 50%;
+			top: calc(50% + 2px);
 			transform: translate(0,-50%);	
 			margin: auto;
 
@@ -555,6 +568,8 @@ body
 
 		.text 
 		{
+			position: relative;
+			top: 2.5px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -573,7 +588,7 @@ body
 			p 
 			{
 				position: relative;
-				top: 1px;
+				top: -1px;
 				color: $add-section-text;
 				font-weight: 400;
 			}
@@ -620,4 +635,86 @@ body
 			}
 		}
 	}
+}
+
+.add-label
+{
+	height: $add-label !important;
+	width: 100%;
+	background: #f5f5f5;
+
+	.all-wrap
+	{
+		height: $add-label;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	input.label
+	{
+		background: none;
+		color: $tag-text;
+		border: 2px solid rgba(0,0,0,.1);
+		outline: none;
+		font-size: .8em;
+		padding: 8px;
+		border-radius: 5px;
+		width: 90%;
+		margin: 5px auto;
+	}
+
+	textarea.describe
+	{
+		background: none;
+		color: $tag-text;
+		border: 2px solid rgba(0,0,0,.1);
+		outline: none;
+		font-size: .8em;
+		padding: 8px;
+		border-radius: 5px;
+		width: 90%;
+		margin: 5px auto;
+	}
+
+	input.label:focus,textarea.describe:focus
+	{
+		border: 2px solid $highlight;
+	}
+
+	.buttons
+	{
+		width: calc(90% + 27px);
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 10px;
+
+		button 
+		{
+			padding: 10px 15px;
+			background: none;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: #788290;
+			outline: none;
+			border: none;
+			border-radius: 5px;
+			margin: 5px;
+			font-size: .8em;
+			cursor: pointer;
+		}
+
+		.green-back
+		{
+			background: #47b178;
+			color: #FFF;
+		}
+	}
+}
+
+.add-label:hover
+{
+	
 }
