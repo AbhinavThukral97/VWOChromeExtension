@@ -357,7 +357,7 @@ body {
   visibility: hidden; }
   .add-section .text {
     position: relative;
-    top: 2.5px;
+    top: 5px;
     display: flex;
     justify-content: center;
     align-items: center; }
