@@ -1,0 +1,715 @@
+$primary-font: 'Roboto', sans-serif;
+
+@mixin transition($time){
+-webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -ms-transition: all $time ease;
+  transition: all $time ease;
+}
+
+@mixin noselection()
+{
+	-webkit-user-select: none; 
+  	-moz-user-select: none;   
+  	-ms-user-select: none;    
+  	user-select: none;   
+}
+
+//Dimensions
+$width: 500px;
+$height: 600px;
+$header-height: 80px;
+$enable-section-height: 60px;
+$tile-height: 170px;
+$menu-option-height: 80px;
+$button-width: 50px;
+$settings-height: 400px;
+$settings-tile: 120px;
+$add-section: 60px;
+$add-label: 200px;
+
+//Color Palette
+$header-color: rgb(43, 57, 69);
+$title-color: #FFF;
+$enable-section-color: rgb(43, 57, 69);
+$tile-wrapper-back: #EEEFF1;
+$line-color: rgba(0,0,0,.1);
+$tile-svg-color: #9eadbf;
+$edit-button-color: #2b3945;
+$remove-button-color: #ed4e51;
+$number-back: rgb(43, 57, 69);
+$number-color: #FFF;
+$obs-text-color: #424852;
+$time-stamp-color: #A6AEB9;
+$menu-section-back: #EEEFF1;
+$menu-option-color: #FFF;
+$menu-option-text: #424852;
+$arrow-color: #9eadbf;
+$menu-option-hover: #F5F7F8;
+$tile-hover: #F5F7F8;
+$tag-color: #EEE;
+$tag-text: #AAA;
+$button-body: #8d9092;
+$button-thumb: #FFF;
+$enable-button-text: #FFF;
+$active-color: #3892E3; 
+$setting-icon: #FFF;
+$settings-back: #EEEFF1;
+$add-section-color: #3892E3;
+$setting-active: #3f5465; //#3892E3
+$add-section-text: #FFF;
+$add-section-hover: #4aa5f7;
+$highlight: #a7a7a7;
+
+
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f7f7f7;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+*
+{
+	font-family: $primary-font;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+body 
+{
+	position: relative;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+}
+
+
+.svg-code
+{
+	display: none;
+}
+
+.extension-wrapper
+{
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+
+//Main-CSS
+.extension-area
+{
+	position: relative;
+	height: $height;
+	width: $width;
+	background: #FFF;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	overflow: hidden;
+
+	//First Panel - Menu - Wrapper
+	.pg-options
+	{
+		position: absolute;
+		left: 0%;
+		height: 100%;
+		width: 100%;
+	}
+
+	//Second Panel - Observations - Wrapper
+	.pg-main
+	{
+		position: absolute;
+		left: 100%;
+		height: 100%;
+		width: 100%;
+	}
+
+	header
+	{
+		position: relative;
+		background: $header-color;
+		height: $header-height;
+		width: 100%;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		z-index: 1000;
+		@include noselection();
+
+		//For mainpage
+		.split 
+		{
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		//VWO logo container
+		.split:nth-child(2)
+		{
+			height: 100%;
+			width: 80px;
+			border-right: 1px solid rgba(255,255,255,.1);
+		}
+
+		//Settings Icon
+		.setting-icon-wrap,.close-icon-wrap
+		{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 18px;
+			height: 18px;
+			overflow: hidden;
+			transform: translate(-50%,-50%);
+		}
+
+		.close-icon-wrap
+		{
+			width: 15px !important;
+		}
+
+		.settings,.close-button
+		{
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			width: 80px;
+			cursor: pointer;
+			border-left: 1px solid rgba(255,255,255,.1);
+			@include transition(.25s);
+
+			svg 
+			{
+				width: 18px;
+				height: 18px;
+				fill: $setting-icon;
+			}
+		}
+
+		.settings:hover,.close-button:hover
+		{
+			background: rgba(255,255,255,.1);
+		}
+
+		.close-button
+		{
+			display: none;
+
+			svg 
+			{
+				width: 15px;
+			}
+		}
+
+		.settings-active
+		{
+			background: $setting-active !important;
+			border-bottom: 1px solid $setting-active;
+		}
+
+		//Triangle
+		.settings-active:after
+		{
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translate(-50%,0);
+			bottom: -20px;
+			height: 0px;
+			width: 0px;
+			border: 10px solid transparent;
+			border-top: 10px solid $setting-active;
+			@include transition(.25s);
+		}
+
+		//Back Button Parent Wrapper
+		.back-button
+		{
+			height: 100%;
+			width: 50px;
+			border-right: 1px solid rgba(255,255,255,.1);
+			cursor: pointer;
+			@include transition(.5s);
+		}
+
+		.back-button:hover
+		{
+			background: rgba(255,255,255,.1);
+
+			.arrow
+			{
+				fill: #FFF;
+			}
+		}
+
+		//SVG positioner
+		.back
+		{
+			position: relative;
+			width: 25px; /*Icon width plus padding on arrow class(15 + 2x5 = 25)*/
+			height: 25px;
+			padding: 5px;
+			overflow: hidden;
+			margin: auto;
+			top: 50%;
+			transform: translate(0%,-50%) rotateY(-180deg);
+
+			.arrow 
+			{
+				fill: rgba(255,255,255,.5);
+				@include transition(.5s);
+			}
+		}
+
+		//To center align logo for header in pg-options
+		.center-align
+		{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+
+			.logo 
+			{
+				width: 50px;
+				position: relative;
+				top: 0;
+				left: 0;
+				transform: translate(0,0);
+
+				svg 
+				{
+					width: 100%;
+				}
+			}
+		}
+
+		.logo
+		{	
+			width: 50px;
+			position: relative;
+			top: calc(50% + 2px);
+			transform: translate(0,-50%);	
+			margin: auto;
+
+			svg 
+			{
+				width: 100%;
+			}
+		}
+
+		.title
+		{
+			color: $title-color;
+			text-transform: uppercase;
+			font-size: 1em;
+			letter-spacing: 2px;
+			font-weight: 400;
+			padding: 0px 15px;
+		}
+	}
+
+//Options Menu for Pg-Main
+.menu-section
+{
+	width: 100%;
+	height: $height - $header-height;
+	background: $menu-section-back;
+	overflow: auto;
+
+	.menu-option
+	{
+		position: relative;
+		width: 100%;
+		height: $menu-option-height;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		background: $menu-option-color;
+		cursor: pointer;
+		@include transition(.5s);
+
+		p 
+		{
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-weight: 400;
+			font-size: .9em;
+			width: 85%;
+			margin: auto;
+			position: relative;
+			top: 50%;
+			transform: translate(0,-50%);
+			color: $menu-option-text;
+		}
+
+		.right-end-positioner
+		{
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translate(0,-50%);
+		}
+	}
+
+	.menu-option:hover
+	{
+		background: $menu-option-hover;
+	}
+}
+
+
+	//Toggle Observation Mode Section
+	.enable-section
+	{
+		width: 100%;
+		background: $enable-section-color;
+		box-shadow: 0px -4px 0px rgba(0,0,0,.1) inset;
+		@include transition(.5s);
+
+		.enable-button-wrapper
+		{
+			height: $enable-section-height;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.active
+			{
+				background: $active-color !important;
+
+				.button-thumb
+				{
+					left: $button-width - 25px !important;
+				}
+			}
+
+			.button-body
+			{
+				position: relative;
+				width: $button-width;
+				height: 30px;
+				border-radius: 100px;
+				background: $button-body;
+				cursor: pointer;
+				@include transition(.25s);
+
+				.button-thumb
+				{
+					position: absolute;
+					top: 5px;
+					left: 5px;
+					width: 20px;
+					height: 20px;
+					border-radius: 100%;
+					background: $button-thumb;
+					@include transition(.25s);
+				}
+			}
+
+			.assist-text
+			{
+				font-size: .8em;
+				color: $enable-button-text; 
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-weight: 700;
+				padding: 20px;  
+				@include noselection();
+			}
+		}
+	}
+}
+
+//Observations Tiles Display Area
+.tiles-section
+{
+	width: 100%;
+	height: $height - $enable-section-height - $header-height;
+	background: $tile-wrapper-back;
+	overflow: auto;
+}
+
+//Tile Code
+
+	.tile 
+	{
+		position: relative;
+		width: 100%;
+		height: $tile-height;
+		border-bottom: 1px solid $line-color;
+		background: #FFF;
+		@include transition(.5s);
+
+		.tile-options
+		{
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+			opacity: 0;
+			@include transition(.2s);
+
+			.edit,.remove 
+			{
+				width: 16px;
+				padding: 2px;
+				cursor: pointer;
+				fill: $tile-svg-color;
+			}
+
+			.edit:hover
+			{
+				fill: $edit-button-color !important;
+			}
+
+			.remove:hover
+			{
+				fill: $remove-button-color !important;
+			}
+		}
+
+		.content-wrapper
+		{
+			width: 90%;
+			padding-top: 25px;
+			margin: auto;
+			overflow: auto;
+
+			.obs-number
+			{
+				display: inline-block;
+				background: $number-back;
+				color: $number-color;
+				padding: 3px 10px;
+				border-radius: 30px;
+				font-size: .7em;
+				margin-right: 10px;
+			}
+
+			.obs-text
+			{
+				font-size: 1em;
+				line-height: 1.5;
+				color: $obs-text-color;
+			}
+
+			.time-stamp
+			{
+				padding-top: 5px;
+				font-size: .8em;
+				color: $time-stamp-color;
+			}
+
+			.tag 
+			{
+				font-size: .7em;
+				padding: 4px 10px;
+				background: $tag-color;
+				color: $tag-text;
+				font-weight: 500;
+				display: inline-block;
+				margin: 8px;
+				margin-bottom: 0px;
+				margin-left: 0px;
+				border-radius: 6px;
+			}
+		}
+	}
+
+	.tile:hover
+	{
+		background: $tile-hover;
+		cursor: pointer;
+
+		.tile-options
+		{
+			opacity: 1;
+		}
+	}
+
+//End of Tiles Code
+
+.arrow
+{
+	width: 15px;
+	height: 15px;
+	padding: 5px;
+	cursor: pointer;
+	fill: $arrow-color;
+}
+
+	//Add-Section
+	.add-section
+	{
+		position: absolute;
+		top: $header-height;
+		height: $add-section;
+		width: 100%;
+		background: $add-section-color;
+		box-shadow: inset 0px -5px 0 rgba(0,0,0,.1);
+		z-index: 10;
+		cursor: pointer;
+		visibility: hidden;
+
+		.text 
+		{
+			position: relative;
+			top: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.add 
+			{
+				width: 18px;
+				padding-right: 10px;
+
+				use 
+				{
+					width: 100%;
+				}
+			}
+
+			p 
+			{
+				position: relative;
+				top: -1px;
+				color: $add-section-text;
+				font-weight: 400;
+			}
+		}
+	}
+
+	.add-section:hover
+	{
+		background: $add-section-hover;
+	}
+
+//Settings On-Click Wrapper
+.settings-tab
+{
+	width: 100%;
+	height: $height - $add-section - $header-height;
+	position: absolute;
+	top: $header-height + $add-section;
+	visibility: hidden;
+	background: $settings-back;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	overflow: auto;
+
+	.tile 
+	{
+		height: $settings-tile;
+		@include transition(0s);
+
+		.content-wrapper
+		{
+			.tag 
+			{
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0;
+			}
+
+			.description
+			{
+				width: 70%;
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+.add-label
+{
+	height: $add-label !important;
+	width: 100%;
+	background: #f5f5f5;
+
+	.all-wrap
+	{
+		height: $add-label;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	input.label
+	{
+		background: none;
+		color: $tag-text;
+		border: 2px solid rgba(0,0,0,.1);
+		outline: none;
+		font-size: .8em;
+		padding: 8px;
+		border-radius: 5px;
+		width: 90%;
+		margin: 5px auto;
+	}
+
+	textarea.describe
+	{
+		background: none;
+		color: $tag-text;
+		border: 2px solid rgba(0,0,0,.1);
+		outline: none;
+		font-size: .8em;
+		padding: 8px;
+		border-radius: 5px;
+		width: 90%;
+		margin: 5px auto;
+	}
+
+	input.label:focus,textarea.describe:focus
+	{
+		border: 2px solid $highlight;
+	}
+
+	.buttons
+	{
+		width: calc(90% + 27px);
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-top: 10px;
+
+		button 
+		{
+			padding: 10px 15px;
+			background: none;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: #788290;
+			outline: none;
+			border: none;
+			border-radius: 5px;
+			margin: 5px;
+			font-size: .8em;
+			cursor: pointer;
+		}
+
+		.green-back
+		{
+			background: #47b178;
+			color: #FFF;
+		}
+	}
+}
