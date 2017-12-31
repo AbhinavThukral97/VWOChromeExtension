@@ -303,7 +303,7 @@ body {
     width: 90%;
     padding-top: 25px;
     margin: auto;
-    overflow: auto; }
+    //overflow: auto; }
     .tile .content-wrapper .obs-number {
       display: inline-block;
       background: #2b3945;
